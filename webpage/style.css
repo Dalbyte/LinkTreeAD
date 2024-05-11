@@ -33,6 +33,16 @@ footer{
     border: solid var(--white) 3px;
 }
 
+#roundPhoto{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 35px auto 20px;
+
+    border-radius: 50%;
+    border: solid var(--white) 2px;
+}
+
 #userName{
     width: 100%;
 
