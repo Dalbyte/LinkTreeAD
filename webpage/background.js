@@ -64,7 +64,29 @@ function parallaxmaus(e){
 var dampX = 0;
 var dampY = 0;
 
- function damping(zyklus, damp, change) {
-    //return (change)
+function damping(zyklus, damp, change) {
     return ((zyklus*damp)+change)/(zyklus+1)
- }
+}
+
+// ── Depth of Field ─────────────────────────────────────
+var dofTime = 0;
+
+function updateDOF() {
+    dofTime += 0.004;
+
+    // two overlapping sine waves = organic, non-repeating focus shift
+    var focusDepth = 5.5
+        + Math.sin(dofTime * 0.8) * 3.5
+        + Math.sin(dofTime * 1.7) * 1.5;
+
+    layer.forEach(function(el) {
+        var speed = parseFloat(el.getAttribute('speed'));
+        var distance = Math.abs(speed - focusDepth);
+        var blur = Math.pow(distance, 1.3) * 1.6;
+        el.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+    });
+
+    requestAnimationFrame(updateDOF);
+}
+
+updateDOF();
