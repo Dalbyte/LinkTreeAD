@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-
+/* Google Fonts wird nur nach Einwilligung per JS geladen */
 
 :root {
-    --font: 'Bitter', sans-serif;
+    --font: 'Bitter', Futura, 'Century Gothic', 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
     --background: #564dffb4;
     --highlight: #7872d8;
     --white: #ffffff;
@@ -21,6 +18,8 @@ footer{
     font-family: var(--font);
     font-size: 0.8rem;
     font-weight: 700;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
 }
 
 #userPhoto{
@@ -125,4 +124,167 @@ footer{
     pointer-events: none;
     /*filter: blur(18px) brightness(1);*/
     z-index: -1;
+}
+
+/* ── Footer Links ── */
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0;
+    display: inline-block;
+    margin-top: 0.6rem;
+}
+footer a:hover {
+    opacity: 0.75;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal {
+    background: #3d36c0;
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 520px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    color: var(--white);
+    font-family: var(--font);
+}
+.modal h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+.modal h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+.modal p, .modal a {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.modal a {
+    color: var(--white);
+}
+.modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-close:hover {
+    background: var(--white);
+    color: #3d36c0;
+}
+
+/* ── Consent Banner ── */
+.consent-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2a2490;
+    border-top: 2px solid var(--white);
+    padding: 1rem 1.5rem;
+    z-index: 300;
+    font-family: var(--font);
+    color: var(--white);
+    text-align: center;
+}
+.consent-banner.active {
+    display: block;
+}
+.consent-banner p {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.consent-btn {
+    margin: 0.25rem 0.4rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 5px;
+    border: 2px solid var(--white);
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: transparent;
+    color: var(--white);
+    transition: all .2s ease;
+}
+.consent-btn.accept {
+    background: var(--white);
+    color: #2a2490;
+}
+.consent-btn:hover {
+    opacity: 0.8;
+}
+.consent-reset {
+    font-size: 0.75rem;
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-family: var(--font);
+    margin-top: 0.5rem;
+}
+
+/* ── Copy Bubble ── */
+.copy-bubble {
+    position: fixed;
+    background: var(--white);
+    color: #3d36c0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 700;
+    pointer-events: none;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    z-index: 999;
+    animation: bubbleFade 1.4s ease forwards;
+}
+
+@keyframes bubbleFade {
+    0%   { opacity: 0; margin-top: 0; }
+    15%  { opacity: 1; margin-top: -12px; }
+    70%  { opacity: 1; margin-top: -12px; }
+    100% { opacity: 0; margin-top: -22px; }
 }
