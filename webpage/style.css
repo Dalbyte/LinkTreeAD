@@ -74,7 +74,7 @@ footer{
     display: block;
 }
 
-#links{
+.links{
     max-width: 300px;
     width: auto;
 
@@ -116,14 +116,13 @@ footer{
 }
 
 .back{
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 110%;
+    height: 100%;
     overflow: hidden;
-    left: 0px;
-    top: 0px;
-    pointer-events:none;
+    left: 0;
+    top: 0;
+    pointer-events: none;
     /*filter: blur(18px) brightness(1);*/
     z-index: -1;
-    
 }
